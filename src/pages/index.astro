@@ -18,6 +18,21 @@ const topCountries = (await getTaxonomyIndex('country')).slice(0,8);
 const topLabels = (await getTaxonomyIndex('label')).slice(0,8);
 ---
 <BaseLayout>
+  <section class="hero hero--compact">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker">Independent Extreme Metal Journal & Archive · Based in Chile</div>
+        <h1>Documenting the underground beyond the feed.</h1>
+        <p>Selected reviews, interviews and release news, with a permanent window into Chilean and South American extreme metal.</p>
+      </div>
+      <aside class="hero-index" aria-label="Publication index">
+        <div>INDEX / 001</div>
+        <div>CHILE / MMXXVI</div>
+        <div>REVIEWS · NEWS · ARCHIVE</div>
+      </aside>
+    </div>
+  </section>
+
   {featured && <section class="section section--featured"><div class="container">
     <div class="section-head"><h2>Featured</h2><a href={linkFor(featured)}>Read {typeLabel(featured).toLowerCase()} →</a></div>
     <a class="featured-card" href={linkFor(featured)}>

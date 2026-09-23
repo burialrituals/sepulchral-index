@@ -167,6 +167,8 @@ p { color: #d1cec5; line-height: 1.65; }
 .from-chile-hero + .section .content-card__body { min-height: 150px; }
 
 @media (min-width: 901px) {
-  .section--featured .container { max-width: 1080px; }
-  .featured-card__media { max-width: 420px; width: 100%; }
+  /* Keep Featured aligned with the full-width sections below. */
+  .section--featured .container { max-width: var(--max); }
+  .featured-card { grid-template-columns: minmax(360px, 480px) minmax(0, 1fr); }
+  .featured-card__media { max-width: 480px; width: 100%; }
 }
