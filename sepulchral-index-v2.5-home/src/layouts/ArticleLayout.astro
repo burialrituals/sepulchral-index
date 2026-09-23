@@ -1,0 +1,25 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TaxonomyLinks from '../components/TaxonomyLinks.astro';
+import ContentCard from '../components/ContentCard.astro';
+import { hrefForEntry, labelForCollection } from '../lib/taxonomies';
+const { title, description, eyebrow, meta = [], image, entry, related = [] } = Astro.props;
+---
+<BaseLayout title={`${title} | Sepulchral Index`} description={description} image={image}>
+  <article class="article">
+    <div class="kicker">{eyebrow}</div>
+    <h1>{title}</h1>
+    {image && <figure class="article-hero"><img src={image} alt={title} /></figure>}
+    <div class="article-meta">
+      {meta.map((item) => <div>{item}</div>)}
+    </div>
+    {entry && <div class="filed-under"><span>Filed under</span><TaxonomyLinks entry={entry} /></div>}
+    <div class="article-content"><slot /></div>
+  </article>
+  {related.length > 0 && <section class="section related-section"><div class="container">
+    <div class="section-head"><h2>Related entries</h2><a href="/browse/">Browse archive →</a></div>
+    <div class="editorial-grid">
+      {related.slice(0,3).map((item,index)=><ContentCard href={hrefForEntry(item)} image={item.data.image} eyebrow={`${labelForCollection(item.collection)} · ${item.data.country ?? 'International'}`} title={item.data.title} description={item.data.description} large={index===0} />)}
+    </div>
+  </div></section>}
+</BaseLayout>

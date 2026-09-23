@@ -30,6 +30,8 @@ const topLabels = (await getTaxonomyIndex('label')).slice(0,8);
     </a>
   </div></section>}
 
+
+
   {news.length > 0 && <section class="section"><div class="container">
     <div class="section-head"><h2>News</h2><a href="/news/">All news →</a></div>
     <div class="news-grid">{news.slice(0,6).map(n => <a class="news-card" href={`/news/${n.id}/`}>
@@ -50,7 +52,7 @@ const topLabels = (await getTaxonomyIndex('label')).slice(0,8);
   </div></section>}
 
   <section class="section browse-teaser"><div class="container">
-    <div class="section-head"><div><div class="kicker">Archive navigation</div><h2>Browse the Index</h2></div><a href="/browse/">Browse full index →</a></div>
+    <div class="section-head"><div><div class="kicker">Archive navigation</div><h2>Index</h2></div><a href="/browse/">Browse full index →</a></div>
     <div class="browse-columns">
       <div class="browse-widget"><h3>Genres</h3>{topGenres.map(x=><a href={`/genre/${x.slug}/`}><span>{x.value}</span><small>{x.count}</small></a>)}</div>
       <div class="browse-widget"><h3>Countries</h3>{topCountries.map(x=><a href={`/country/${x.slug}/`}><span>{x.value}</span><small>{x.count}</small></a>)}</div>

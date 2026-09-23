@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { getCollection } from 'astro:content';
+const items=(await getCollection('interviews')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+---
+<BaseLayout title="Interviews | Sepulchral Index">
+  <section class="hero hero--section"><div class="container"><div class="kicker">Interviews</div><h1>Direct voices.</h1><p>Conversations with bands and people shaping the extreme metal underground.</p></div></section>
+  <section class="section"><div class="container">
+    {items.length ? <div class="editorial-grid">{items.map((i,index)=><ContentCard href={`/interviews/${i.id}/`} image={i.data.image} eyebrow={`${i.data.country} · ${i.data.genres.join(' / ')}`} title={i.data.title} description={i.data.description} large={index===0}/>)}</div> : <p class="empty-state">Interviews will be added as the archive grows.</p>}
+  </div></section>
+</BaseLayout>

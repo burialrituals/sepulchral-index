@@ -1,0 +1,8 @@
+---
+import { allTaxonomyLinks } from '../lib/taxonomies';
+const { entry, compact = false } = Astro.props;
+const links = allTaxonomyLinks(entry);
+---
+{links.length > 0 && <div class:list={["taxonomy-links", { "taxonomy-links--compact": compact }]}>
+  {links.map((item) => <a class={`taxonomy-pill taxonomy-pill--${item.key}`} href={item.href}>{item.value}</a>)}
+</div>}
