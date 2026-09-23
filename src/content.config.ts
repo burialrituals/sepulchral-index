@@ -11,6 +11,18 @@ const common = z.object({
   image: z.string().optional(),
 });
 
+const releaseFields = {
+  band: z.string().optional(),
+  release: z.string().optional(),
+  country: z.string().optional(),
+  city: z.string().optional(),
+  genres: z.array(z.string()).default([]),
+  label: z.string().optional(),
+  releaseType: z.string().optional(),
+  formats: z.array(z.string()).default([]),
+  releaseDate: z.string().optional(),
+};
+
 const reviews = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/reviews' }),
   schema: common.extend({
@@ -33,9 +45,7 @@ const reviews = defineCollection({
 const news = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/news' }),
   schema: common.extend({
-    band: z.string().optional(),
-    country: z.string().optional(),
-    label: z.string().optional(),
+    ...releaseFields,
     sourceUrl: z.string().url().optional(),
   })
 });

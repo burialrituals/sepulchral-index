@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'; import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 const items=(await getCollection('news')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
 ---
-<BaseLayout title="News | Sepulchral Index"><section class="hero"><div class="container"><div class="kicker">News</div><h1>Signals from the underground.</h1><p>Selected release, label and scene news without press-release bloat.</p></div></section><section class="section"><div class="container"><div class="list">{items.map(n=><a class="list-item" href={`/news/${n.id}/`}><div class="date">{n.data.pubDate.toLocaleDateString('en-GB')}</div><div><h3>{n.data.title}</h3><p>{n.data.description}</p></div></a>)}</div></div></section></BaseLayout>
+<BaseLayout title="News | Sepulchral Index"><section class="hero hero--section"><div class="container"><div class="kicker">News</div><h1>Signals from the underground.</h1><p>Selected release, label and scene news without press-release bloat.</p></div></section><section class="section"><div class="container"><div class="news-grid">{items.map(n=><a class="news-card" href={`/news/${n.id}/`}>{n.data.image&&<img src={n.data.image} alt={n.data.title} loading="lazy"/>}<div class="news-card__body"><div class="meta">{n.data.pubDate.toLocaleDateString('en-GB')} · {n.data.country??'International'}</div><h3>{n.data.title}</h3><p>{n.data.description}</p></div></a>)}</div></div></section></BaseLayout>

@@ -1,11 +1,12 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-const { title, description, eyebrow, meta = [], badges = [] } = Astro.props;
+const { title, description, eyebrow, meta = [], badges = [], image } = Astro.props;
 ---
-<BaseLayout title={`${title} | Sepulchral Index`} description={description}>
+<BaseLayout title={`${title} | Sepulchral Index`} description={description} image={image}>
   <article class="article">
     <div class="kicker">{eyebrow}</div>
     <h1>{title}</h1>
+    {image && <figure class="article-hero"><img src={image} alt={title} /></figure>}
     <div class="article-meta">
       {meta.map((item) => <div>{item}</div>)}
     </div>

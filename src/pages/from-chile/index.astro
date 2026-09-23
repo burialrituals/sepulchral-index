@@ -1,6 +1,12 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'; import { getCollection } from 'astro:content';
-const reviews=(await getCollection('reviews')).filter(x=>x.data.country==='Chile').sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
-const interviews=(await getCollection('interviews')).filter(x=>x.data.country==='Chile').sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import { getCollection } from 'astro:content';
+const reviews=(await getCollection('reviews')).filter(x=>x.data.country==='Chile');
+const interviews=(await getCollection('interviews')).filter(x=>x.data.country==='Chile');
+const news=(await getCollection('news')).filter(x=>x.data.country==='Chile');
+const features=(await getCollection('features')).filter(x=>x.data.country==='Chile');
+const items=[...reviews,...interviews,...news,...features].sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+const label=(i)=>i.collection==='reviews'?'Review':i.collection==='news'?'News':i.collection==='interviews'?'Interview':'Feature';
 ---
-<BaseLayout title="From Chile | Sepulchral Index" description="A dedicated window into Chilean extreme metal."><section class="hero"><div class="container"><div class="kicker">From Chile</div><h1>Chile is the base, not the border.</h1><p>A permanent section for Chilean extreme metal: releases, interviews, labels, archive material and future scene reports.</p></div></section><section class="section"><div class="container"><div class="section-head"><h2>Recent coverage</h2></div><div class="grid">{[...reviews,...interviews].slice(0,6).map(i=><a class="card" href={`/${i.collection}/${i.id}/`}><div class="card-media">FROM CHILE</div><div class="card-body"><div class="meta">Chile · {i.collection}</div><h3>{i.data.title}</h3><p>{i.data.description}</p></div></a>)}</div></div></section></BaseLayout>
+<BaseLayout title="From Chile | Sepulchral Index" description="A dedicated window into Chilean extreme metal."><section class="hero hero--section from-chile-hero"><div class="container"><div class="kicker">CHL / Field Index</div><h1>Chile is the base, not the border.</h1><p>A permanent section for Chilean extreme metal: releases, interviews, labels, archive material and future scene reports.</p></div></section><section class="section"><div class="container"><div class="section-head"><h2>Recent coverage</h2></div>{items.length?<div class="editorial-grid">{items.map((i,index)=><ContentCard href={`/${i.collection}/${i.id}/`} image={i.data.image} eyebrow={`Chile · ${label(i)}`} title={i.data.title} description={i.data.description} large={index===0}/>)}</div>:<p>No Chilean coverage has been published yet.</p>}</div></section></BaseLayout>
