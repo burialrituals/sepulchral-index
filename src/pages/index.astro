@@ -59,7 +59,7 @@ const topLabels = (await getTaxonomyIndex('label')).slice(0,8);
       <a class="section-link" href="/from-chile/">Explore Chile →</a>
     </div>
     <div class="editorial-grid editorial-grid--chile">
-      {chileItems.slice(0,3).map((i,index) => <ContentCard href={linkFor(i)} image={i.data.image} eyebrow={`Chile · ${typeLabel(i)}`} title={i.data.title} description={i.data.description} large={index===0} />)}
+      {chileItems.slice(0,3).map((i) => <ContentCard href={linkFor(i)} image={i.data.image} eyebrow={`Chile · ${typeLabel(i)}`} title={i.data.title} description={i.data.description} />)}
     </div>
   </div></section>}
 
