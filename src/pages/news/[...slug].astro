@@ -1,0 +1,6 @@
+---
+import { getCollection, render } from 'astro:content'; import ArticleLayout from '../../layouts/ArticleLayout.astro';
+export async function getStaticPaths(){const entries=await getCollection('news');return entries.map(entry=>({params:{slug:entry.id},props:{entry}}));}
+const {entry}=Astro.props; const {Content}=await render(entry); const d=entry.data;
+---
+<ArticleLayout title={d.title} description={d.description} eyebrow="News" meta={[d.pubDate.toLocaleDateString('en-GB'),d.country??'International',d.label?`Label: ${d.label}`:''].filter(Boolean)}><Content />{d.sourceUrl&&<p><a href={d.sourceUrl} target="_blank" rel="noreferrer">Official source →</a></p>}</ArticleLayout>

@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const issues=Array.from({length:16},(_,i)=>i+1);
+---
+<BaseLayout title="Burial Rituals News Archive | Sepulchral Index"><section class="hero"><div class="container"><div class="kicker">Print Archive</div><h1>Burial Rituals News.</h1><p>Sixteen issues of the printed underground newsletter that forms part of this project's editorial history. Covers, dates and contents can be added progressively.</p></div></section><section class="section"><div class="container"><div class="archive-grid">{issues.map(n=><div class="issue"><span>Printed newsletter</span><h3>Issue #{String(n).padStart(2,'0')}</h3></div>)}</div></div></section></BaseLayout>

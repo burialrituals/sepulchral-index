@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const items=(await getCollection('reviews')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+---
+<BaseLayout title="Reviews | Sepulchral Index" description="Short, focused reviews of underground extreme metal.">
+<section class="hero"><div class="container"><div class="kicker">Reviews</div><h1>Selected listening.</h1><p>Concise reviews focused on sound, atmosphere, context and why a release deserves attention.</p></div></section>
+<section class="section"><div class="container"><div class="grid">{items.map(r=><a class="card" href={`/reviews/${r.id}/`}><div class="card-media">{r.data.band}<br/>{r.data.release}</div><div class="card-body"><div class="meta">{r.data.country} · {r.data.genres.join(' / ')}</div><h3>{r.data.title}</h3><p>{r.data.description}</p></div></a>)}</div></div></section>
+</BaseLayout>

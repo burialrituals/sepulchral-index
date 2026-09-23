@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const reviews = (await getCollection('reviews')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+const news = (await getCollection('news')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+const interviews = (await getCollection('interviews')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+const features = (await getCollection('features')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+const featured = features[0] ?? reviews[0];
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">Independent Extreme Metal Journal & Archive · Based in Chile</div>
+      <h1>Documenting the underground beyond the feed.</h1>
+      <p>Short reviews, interviews, selected news and a growing archive of extreme metal — with a particular focus on Chile and South America.</p>
+    </div>
+  </section>
+
+  {featured && <section class="section"><div class="container">
+    <div class="section-head"><h2>Featured</h2><a href={`/${featured.collection}/${featured.id}/`}>Read feature →</a></div>
+    <a class="card" href={`/${featured.collection}/${featured.id}/`}>
+      <div class="card-media">FEATURE / ARCHIVE</div>
+      <div class="card-body"><div class="meta">{featured.data.pubDate.toLocaleDateString('en-GB')}</div><h3>{featured.data.title}</h3><p>{featured.data.description}</p></div>
+    </a>
+  </div></section>}
+
+  <section class="section"><div class="container">
+    <div class="section-head"><h2>Latest Reviews</h2><a href="/reviews/">All reviews →</a></div>
+    <div class="grid">{reviews.slice(0,3).map(r => <a class="card" href={`/reviews/${r.id}/`}><div class="card-media">{r.data.band}<br/>{r.data.release}</div><div class="card-body"><div class="meta">{r.data.country} · {r.data.genres.join(' / ')}</div><h3>{r.data.title}</h3><p>{r.data.description}</p></div></a>)}</div>
+  </div></section>
+
+  <section class="section"><div class="container">
+    <div class="section-head"><h2>From Chile</h2><a href="/from-chile/">Explore →</a></div>
+    <div class="grid">{reviews.filter(r=>r.data.country==='Chile').slice(0,2).map(r => <a class="card" href={`/reviews/${r.id}/`}><div class="card-media">FROM CHILE</div><div class="card-body"><div class="meta">{r.data.country} · {r.data.genres.join(' / ')}</div><h3>{r.data.title}</h3><p>{r.data.description}</p></div></a>)}</div>
+  </div></section>
+
+  <section class="section"><div class="container">
+    <div class="section-head"><h2>Latest Interview</h2><a href="/interviews/">All interviews →</a></div>
+    {interviews[0] && <a class="card" href={`/interviews/${interviews[0].id}/`}><div class="card-media">INTERVIEW</div><div class="card-body"><div class="meta">{interviews[0].data.country}</div><h3>{interviews[0].data.title}</h3><p>{interviews[0].data.description}</p></div></a>}
+  </div></section>
+
+  <section class="section"><div class="container">
+    <div class="section-head"><h2>News</h2><a href="/news/">All news →</a></div>
+    <div class="list">{news.slice(0,4).map(n => <a class="list-item" href={`/news/${n.id}/`}><div class="date">{n.data.pubDate.toLocaleDateString('en-GB')}</div><div><h3>{n.data.title}</h3><div class="meta">{n.data.country ?? 'International'} {n.data.label ? `· ${n.data.label}`:''}</div></div></a>)}</div>
+  </div></section>
+
+  <section class="section"><div class="container">
+    <div class="section-head"><h2>Burial Rituals News Archive</h2><a href="/archive/burial-rituals/">View archive →</a></div>
+    <p>Sixteen issues of the printed underground newsletter that preceded this project. The archive section preserves that lineage while the digital publication moves forward independently.</p>
+  </div></section>
+</BaseLayout>
