@@ -1,6 +1,6 @@
 {
   "name": "sepulchral-index",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,5 +12,8 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.4"
+  },
+  "engines": {
+    "node": ">=22.19.0"
   }
 }

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentCard from '../components/ContentCard.astro';
 import { getCollection } from 'astro:content';
+import { getTaxonomyIndex } from '../lib/taxonomy-data';
 
 const reviews = (await getCollection('reviews')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
 const news = (await getCollection('news')).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
@@ -12,6 +13,9 @@ const featured = all.find(i=>i.data.featured) ?? all[0];
 const chileItems = all.filter(i=>i.data.country==='Chile');
 const linkFor = (i) => `/${i.collection}/${i.id}/`;
 const typeLabel = (i) => i.collection === 'reviews' ? 'Review' : i.collection === 'news' ? 'News' : i.collection === 'interviews' ? 'Interview' : 'Feature';
+const topGenres = (await getTaxonomyIndex('genre')).slice(0,8);
+const topCountries = (await getTaxonomyIndex('country')).slice(0,8);
+const topLabels = (await getTaxonomyIndex('label')).slice(0,8);
 ---
 <BaseLayout>
   <section class="hero hero--compact">
@@ -66,11 +70,20 @@ const typeLabel = (i) => i.collection === 'reviews' ? 'Review' : i.collection ==
 
   {news.length > 0 && <section class="section"><div class="container">
     <div class="section-head"><h2>Signals / News</h2><a href="/news/">All news →</a></div>
-    <div class="news-grid">{news.slice(0,4).map(n => <a class="news-card" href={`/news/${n.id}/`}>
+    <div class="news-grid">{news.slice(0,6).map(n => <a class="news-card" href={`/news/${n.id}/`}>
       {n.data.image && <img src={n.data.image} alt={n.data.title} loading="lazy" />}
       <div class="news-card__body"><div class="meta">{n.data.pubDate.toLocaleDateString('en-GB')} · {n.data.country ?? 'International'}</div><h3>{n.data.title}</h3><p>{n.data.description}</p></div>
     </a>)}</div>
   </div></section>}
+
+  <section class="section browse-teaser"><div class="container">
+    <div class="section-head"><div><div class="kicker">WordPress-style archive navigation</div><h2>Browse the Index</h2></div><a href="/browse/">All archive terms →</a></div>
+    <div class="browse-columns">
+      <div class="browse-widget"><h3>Genres</h3>{topGenres.map(x=><a href={`/genre/${x.slug}/`}><span>{x.value}</span><small>{x.count}</small></a>)}</div>
+      <div class="browse-widget"><h3>Countries</h3>{topCountries.map(x=><a href={`/country/${x.slug}/`}><span>{x.value}</span><small>{x.count}</small></a>)}</div>
+      <div class="browse-widget"><h3>Labels</h3>{topLabels.map(x=><a href={`/label/${x.slug}/`}><span>{x.value}</span><small>{x.count}</small></a>)}</div>
+    </div>
+  </div></section>
 
   <section class="section"><div class="container archive-teaser">
     <div><div class="kicker">Print lineage</div><h2>Burial Rituals News Archive</h2></div>

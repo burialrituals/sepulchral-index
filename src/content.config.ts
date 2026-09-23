@@ -9,6 +9,7 @@ const common = z.object({
   author: z.string().default('Editorial Staff'),
   featured: z.boolean().default(false),
   image: z.string().optional(),
+  tags: z.array(z.string()).default([]),
 });
 
 const releaseFields = {
@@ -17,7 +18,7 @@ const releaseFields = {
   country: z.string().optional(),
   city: z.string().optional(),
   genres: z.array(z.string()).default([]),
-  label: z.string().optional(),
+  labels: z.array(z.string()).default([]),
   releaseType: z.string().optional(),
   formats: z.array(z.string()).default([]),
   releaseDate: z.string().optional(),
@@ -31,7 +32,7 @@ const reviews = defineCollection({
     country: z.string(),
     city: z.string().optional(),
     genres: z.array(z.string()),
-    label: z.string().optional(),
+    labels: z.array(z.string()).default([]),
     releaseType: z.string().optional(),
     formats: z.array(z.string()).default([]),
     releaseDate: z.string().optional(),
@@ -56,6 +57,7 @@ const interviews = defineCollection({
     band: z.string(),
     country: z.string(),
     genres: z.array(z.string()).default([]),
+    labels: z.array(z.string()).default([]),
   })
 });
 
@@ -63,6 +65,8 @@ const features = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/features' }),
   schema: common.extend({
     country: z.string().optional(),
+    genres: z.array(z.string()).default([]),
+    labels: z.array(z.string()).default([]),
     topic: z.string().optional(),
   })
 });

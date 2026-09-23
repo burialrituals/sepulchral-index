@@ -12,8 +12,13 @@ genres:
   - "Death Metal"
   - "Grindcore"
   - "War Metal"
+labels: []
 releaseType: "Album"
 formats: []
+tags:
+  - "Primitive"
+  - "Raw"
+  - "Grinding"
 recommendedFor:
   - "Hadez"
   - "Necrovore"

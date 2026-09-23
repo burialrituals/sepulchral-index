@@ -1,31 +1,33 @@
-# Sepulchral Index — V2
+# Sepulchral Index — V2.2
 
-Astro site for an independent extreme metal journal and archive based in Chile.
+Astro site for an independent extreme metal journal & archive based in Chile.
 
-## What changed in V2
+## V2.2 highlights
 
-- Reduced and rebalanced hero section.
-- New archival/index visual language (`INDEX / 001`, `CHILE / MMXXVI`).
-- Real cover art integrated into cards and articles.
-- Featured layout redesigned around Deathwards — *Realms of Sin*.
-- Editorial review cards redesigned with a stronger lead-card hierarchy.
-- `From Chile` promoted to a dedicated visual section and now includes news, reviews, interviews and features.
-- Latest Interviews section is supported and appears automatically when interview content exists.
-- News redesigned as image-led signal cards.
-- Article pages now display their release artwork.
-- Header marker changed from `PROVISIONAL` to `EST. MMXXVI`.
-- Microtypography and metadata system refined.
-- About page Lineage text updated.
-- Editorial independence section removed.
-- Placeholder editorial articles removed.
-- Cloudflare Pages canonical URL configured.
+- WordPress-like archive navigation without WordPress.
+- Clickable taxonomy pages for **genres, countries, labels, release types, tags and years**.
+- New `/browse/` archive directory with term counts.
+- Article pages now show clickable `Filed under` taxonomy chips.
+- Related entries are generated automatically from shared genres, tags, labels, country and release type.
+- Homepage includes archive widgets for top genres, countries and labels.
+- Added real Chilean entries:
+  - Putrefactio / Solipnosis — *Antesala al Paroxismo*.
+  - ABISMA — *Promo Demo 2026*.
+- Release artwork is displayed with `object-fit: contain` to avoid unwanted cropping.
+- Footer remains:
+  - **Sepulchral Index**
+  - *Independent extreme metal journal & archive based in Chile.*
+- Placeholder editorial content remains removed.
+- Node version target raised to 22.19.0+.
 
-## Included real editorial entries
+## Current real editorial entries
 
-- PROFANATION — *Ultra-Noise Warfare* — short review.
-- Deathwards — *Realms of Sin* — From Chile / featured news.
-- Nuclearhammer — *XAOS 333* — release news.
-- *Thy Stellar Form* — upcoming release news via Invictus Productions.
+- PROFANATION — *Ultra-Noise Warfare* — review.
+- Deathwards — *Realms of Sin* — featured / From Chile.
+- Nuclearhammer — *XAOS 333* — news.
+- *Thy Stellar Form* — upcoming release news.
+- Putrefactio / Solipnosis — *Antesala al Paroxismo* — From Chile / news.
+- ABISMA — *Promo Demo 2026* — From Chile / news.
 
 ## Local development
 
@@ -48,27 +50,31 @@ The generated site is written to `dist/`.
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Production branch: `main`
-- Node.js: 22
+- Node.js: **22.19.0 or newer**
+
+The repository includes `.node-version` with `22.19.0`.
 
 ## Updating your current Git repository
 
-Copy the contents of this V2 folder over your existing local `sepulchral-index` project, then run:
+Replace your project files with this version while keeping your existing `.git` directory, then run:
 
 ```bash
-git add .
-git commit -m "Sepulchral Index V2"
+git add -A
+git commit -m "Sepulchral Index V2.2 taxonomies"
 git push
 ```
 
-Cloudflare Pages should deploy the new version automatically.
+Cloudflare Pages should deploy automatically.
 
 ## Content
 
-Articles live in `src/content/` as Markdown files with structured frontmatter:
+Articles live in `src/content/` as Markdown files:
 
 - `reviews/`
 - `news/`
 - `interviews/`
 - `features/`
 
-Release images currently live in `public/images/releases/`.
+Images live in `public/images/`.
+
+See `CONTENT_GUIDE.md` for the publishing and taxonomy format.

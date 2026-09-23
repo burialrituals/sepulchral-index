@@ -11,10 +11,15 @@ country: "Chile"
 genres:
   - "Death Metal"
   - "Death/Thrash Metal"
-label: "Sepulchral Voice Records"
+labels:
+  - "Sepulchral Voice Records"
 releaseType: "Album"
 releaseDate: "2026-10-30"
 formats: []
+tags:
+  - "Old School"
+  - "Infernal"
+  - "Death/Thrash"
 ---
 Chilean death metal band Deathwards will release their debut album, *Realms of Sin*, on October 30, 2026 through Sepulchral Voice Records.
 

@@ -7,11 +7,15 @@ featured: false
 image: "/images/releases/death-metal-darkness-thy-stellar-form.jpg"
 genres:
   - "Death Metal"
-label: "Invictus Productions"
+labels:
+  - "Invictus Productions"
 release: "Thy Stellar Form"
 releaseType: "Album"
 releaseDate: "Early 2027"
 formats: []
+tags:
+  - "Upcoming"
+  - "Occult"
 ---
 A new album titled *Thy Stellar Form* has been announced for early 2027 through Invictus Productions.
 

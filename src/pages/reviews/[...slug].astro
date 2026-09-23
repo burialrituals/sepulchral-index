@@ -1,12 +1,16 @@
 ---
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getAllEntries } from '../../lib/taxonomy-data';
+import { relatedScore } from '../../lib/taxonomies';
 export async function getStaticPaths(){const entries=await getCollection('reviews');return entries.map(entry=>({params:{slug:entry.id},props:{entry}}));}
 const { entry }=Astro.props; const { Content }=await render(entry);
 const d=entry.data;
-const meta=[`${d.country}${d.city?` · ${d.city}`:''}`, d.label?`Label: ${d.label}`:'', d.releaseDate?`Release: ${d.releaseDate}`:'', d.formats.length?`Formats: ${d.formats.join(' / ')}`:''].filter(Boolean);
+const labels=d.labels?.length?d.labels.join(' / '):'';
+const meta=[d.pubDate.toLocaleDateString('en-GB'), `${d.country}${d.city?` · ${d.city}`:''}`, labels?`Label: ${labels}`:'', d.releaseDate?`Release: ${d.releaseDate}`:'', d.formats.length?`Formats: ${d.formats.join(' / ')}`:''].filter(Boolean);
+const related=(await getAllEntries()).map(x=>({x,score:relatedScore(entry,x)})).filter(v=>v.score>0).sort((a,b)=>b.score-a.score||b.x.data.pubDate.valueOf()-a.x.data.pubDate.valueOf()).map(v=>v.x);
 ---
-<ArticleLayout title={d.title} description={d.description} eyebrow="Review" meta={meta} badges={d.genres} image={d.image}>
+<ArticleLayout title={d.title} description={d.description} eyebrow="Review" meta={meta} image={d.image} entry={entry} related={related}>
 <Content />
 {d.recommendedFor.length>0 && <div class="callout"><strong>For listeners of</strong><p>{d.recommendedFor.join(' · ')}</p></div>}
 {d.bandcamp && <p><a class="text-link" href={d.bandcamp} target="_blank" rel="noreferrer">Listen on Bandcamp →</a></p>}

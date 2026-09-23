@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TAXONOMIES } from '../../lib/taxonomies';
+import { getTaxonomyIndex } from '../../lib/taxonomy-data';
+const groups = await Promise.all(TAXONOMIES.map(async (t) => ({ ...t, items: await getTaxonomyIndex(t.key) })));
+---
+<BaseLayout title="Browse Archive | Sepulchral Index" description="Browse the Sepulchral Index archive by genre, country, label, release type, tag and year.">
+  <section class="hero hero--section"><div class="container"><div class="kicker">Archive navigation</div><h1>Browse the Index.</h1><p>Navigate the publication like a traditional webzine archive: by genre, country, label, release type, tags and year.</p></div></section>
+  <section class="section"><div class="container taxonomy-directory">
+    {groups.map((group)=><section class="taxonomy-directory__group">
+      <div class="section-head"><h2>{group.label}</h2></div>
+      <div class="term-list">
+        {group.items.map((item)=><a href={`/${group.key}/${item.slug}/`}><span>{item.value}</span><small>{item.count}</small></a>)}
+      </div>
+    </section>)}
+  </div></section>
+</BaseLayout>

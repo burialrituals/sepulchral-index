@@ -11,12 +11,17 @@ country: "Canada"
 genres:
   - "Black Metal"
   - "Bestial Black Metal"
-label: "Iron Bonehead Productions"
+labels:
+  - "Iron Bonehead Productions"
 releaseType: "EP"
 releaseDate: "2026-09-25"
 formats:
   - "CD"
   - "12\" Vinyl"
+tags:
+  - "Hypnotic"
+  - "Bestial"
+  - "Experimental"
 ---
 Iron Bonehead Productions will release Nuclearhammer's new EP, *XAOS 333*, on September 25th on CD and 12-inch vinyl.
 

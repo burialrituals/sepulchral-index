@@ -1,0 +1,7 @@
+---
+import TaxonomyPage from '../../components/TaxonomyPage.astro';
+import { getTaxonomyStaticPaths } from '../../lib/taxonomy-data';
+export async function getStaticPaths(){ return getTaxonomyStaticPaths('label'); }
+const { taxonomyKey, value, entries } = Astro.props;
+---
+<TaxonomyPage taxonomyKey={taxonomyKey} value={value} entries={entries} />
