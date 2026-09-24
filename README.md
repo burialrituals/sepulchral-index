@@ -1,4 +1,4 @@
-# Persecution Index — V2.7
+# Persecution Index — V2.9.1
 
 Astro site for an independent extreme metal journal & archive based in Chile.
 

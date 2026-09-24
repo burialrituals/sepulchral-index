@@ -212,4 +212,58 @@ p { color: #d1cec5; line-height: 1.65; }
 @media (max-width: 680px) {
   .related-section .editorial-grid { grid-template-columns: 1fr; }
 }
-\n\n/* V2.9 — Related entries use an isolated, fixed card system. */\n.related-grid {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 18px;\n  align-items: stretch;\n}\n.related-card {\n  display: flex;\n  flex-direction: column;\n  min-width: 0;\n  height: 100%;\n  border: 1px solid var(--line);\n  background: var(--panel);\n}\n.related-card__media {\n  width: 100%;\n  aspect-ratio: 1 / 1;\n  flex: 0 0 auto;\n  overflow: hidden;\n  background: #050505;\n  border-bottom: 1px solid var(--line);\n}\n.related-card__media img {\n  display: block;\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n  object-position: center;\n  background: #050505;\n}\n.related-card__body {\n  display: flex;\n  flex: 1;\n  flex-direction: column;\n  min-height: 190px;\n  padding: 17px;\n}\n.related-card__body h3 {\n  margin-top: 4px;\n}\n.related-card__body p {\n  margin: 8px 0 0;\n  color: #b8b5ac;\n  font-size: .88rem;\n}\n@media (max-width: 900px) {\n  .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n}\n@media (max-width: 680px) {\n  .related-grid { grid-template-columns: 1fr; }\n  .related-card__body { min-height: 0; }\n}\n
+
+
+/* V2.9.1 — Related entries use an isolated, fixed card system. */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+.related-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.related-card__media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: #050505;
+  border-bottom: 1px solid var(--line);
+}
+.related-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #050505;
+}
+.related-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 190px;
+  padding: 17px;
+}
+.related-card__body h3 {
+  margin-top: 4px;
+}
+.related-card__body p {
+  margin: 8px 0 0;
+  color: #b8b5ac;
+  font-size: .88rem;
+}
+@media (max-width: 900px) {
+  .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .related-grid { grid-template-columns: 1fr; }
+  .related-card__body { min-height: 0; }
+}
