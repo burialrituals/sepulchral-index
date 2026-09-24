@@ -1,4 +1,4 @@
-# Sepulchral Index — Content Guide
+# Persecution Index — Content Guide
 
 The site behaves like a lightweight WordPress magazine archive while remaining fully static.
 

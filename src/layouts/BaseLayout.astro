@@ -3,7 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 const {
-  title = 'Sepulchral Index',
+  title = 'Persecution Index',
   description = 'Independent extreme metal journal & archive based in Chile.',
   image,
 } = Astro.props;
@@ -24,7 +24,7 @@ const socialImage = image && Astro.site ? new URL(image, Astro.site) : image;
     <meta property="og:url" content={canonical} />
     {socialImage && <meta property="og:image" content={socialImage} />}
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="alternate" type="application/rss+xml" title="Sepulchral Index RSS" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Persecution Index RSS" href="/rss.xml" />
     <title>{title}</title>
   </head>
   <body>

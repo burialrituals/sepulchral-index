@@ -1,4 +1,4 @@
-# Sepulchral Index — V2.2
+# Persecution Index — V2.7
 
 Astro site for an independent extreme metal journal & archive based in Chile.
 
@@ -15,7 +15,7 @@ Astro site for an independent extreme metal journal & archive based in Chile.
   - ABISMA — *Promo Demo 2026*.
 - Release artwork is displayed with `object-fit: contain` to avoid unwanted cropping.
 - Footer remains:
-  - **Sepulchral Index**
+  - **Persecution Index**
   - *Independent extreme metal journal & archive based in Chile.*
 - Placeholder editorial content remains removed.
 - Node version target raised to 22.19.0+.
@@ -60,7 +60,7 @@ Replace your project files with this version while keeping your existing `.git` 
 
 ```bash
 git add -A
-git commit -m "Sepulchral Index V2.2 taxonomies"
+git commit -m "Persecution Index V2.2 taxonomies"
 git push
 ```
 
