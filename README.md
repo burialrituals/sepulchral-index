@@ -78,3 +78,7 @@ Articles live in `src/content/` as Markdown files:
 Images live in `public/images/`.
 
 See `CONTENT_GUIDE.md` for the publishing and taxonomy format.
+
+
+## V2.9
+Related entries now use an isolated fixed-size card layout, independent from featured/large ContentCard styles.
