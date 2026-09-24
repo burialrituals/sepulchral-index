@@ -19,7 +19,7 @@ const { title, description, eyebrow, meta = [], image, entry, related = [] } = A
   {related.length > 0 && <section class="section related-section"><div class="container">
     <div class="section-head"><h2>Related entries</h2><a href="/browse/">Browse archive →</a></div>
     <div class="editorial-grid">
-      {related.slice(0,3).map((item,index)=><ContentCard href={hrefForEntry(item)} image={item.data.image} eyebrow={`${labelForCollection(item.collection)} · ${item.data.country ?? 'International'}`} title={item.data.title} description={item.data.description} large={index===0} />)}
+      {related.slice(0,3).map((item)=><ContentCard href={hrefForEntry(item)} image={item.data.image} eyebrow={`${labelForCollection(item.collection)} · ${item.data.country ?? 'International'}`} title={item.data.title} description={item.data.description} />)}
     </div>
   </div></section>}
 </BaseLayout>
