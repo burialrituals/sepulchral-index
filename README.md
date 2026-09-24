@@ -1,4 +1,4 @@
-# Persecution Index — V2.9.1
+# Persecution Index — V2.10
 
 Astro site for an independent extreme metal journal & archive based in Chile.
 
@@ -80,5 +80,5 @@ Images live in `public/images/`.
 See `CONTENT_GUIDE.md` for the publishing and taxonomy format.
 
 
-## V2.9
+## V2.10
 Related entries now use an isolated fixed-size card layout, independent from featured/large ContentCard styles.
