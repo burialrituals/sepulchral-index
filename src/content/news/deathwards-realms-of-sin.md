@@ -3,7 +3,7 @@ title: "Deathwards announce debut album Realms of Sin"
 description: "Chilean death metal band Deathwards will release their debut album Realms of Sin on October 30, 2026 through Sepulchral Voice Records."
 pubDate: 2026-09-23
 author: "Editorial Staff"
-featured: true
+featured: false
 image: "/images/releases/deathwards-realms-of-sin.jpg"
 band: "Deathwards"
 release: "Realms of Sin"

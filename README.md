@@ -1,4 +1,4 @@
-# Persecution Index — V2.12
+# Persecution Index — V2.13
 
 Astro site for an independent extreme metal journal & archive based in Chile.
 
@@ -95,3 +95,10 @@ Related entries now use an isolated fixed-size card layout, independent from fea
 
 - Reduced the homepage hero title size on mobile screens so “Documenting the underground beyond the feed.” remains readable without oversized wrapping.
 - Desktop and section-page heading sizes remain unchanged.
+
+
+## V2.13
+
+- Added Embrace of Thorns / Invocation — *Invoking the Noumenon / Crushing the Feeble Messianic Embrace*.
+- Set the new split announcement as the homepage **Featured** entry.
+- Deathwards remains in the archive and From Chile section but is no longer the featured item.
