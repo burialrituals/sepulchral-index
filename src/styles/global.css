@@ -98,6 +98,7 @@ p { color: #d1cec5; line-height: 1.65; }
   .edition-mark { display: none; }
   .hero--compact, .hero--section { padding: 38px 0 32px; }
   h1 { font-size: clamp(2.55rem, 13vw, 4rem); }
+  .hero--compact h1 { font-size: clamp(2rem, 9.6vw, 2.8rem); line-height: 1.02; max-width: 100%; }
   .section { padding: 36px 0; }
   .section-head { align-items: flex-end; }
   .editorial-grid { grid-template-columns: 1fr; }

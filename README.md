@@ -1,4 +1,4 @@
-# Persecution Index — V2.10
+# Persecution Index — V2.12
 
 Astro site for an independent extreme metal journal & archive based in Chile.
 
@@ -82,3 +82,16 @@ See `CONTENT_GUIDE.md` for the publishing and taxonomy format.
 
 ## V2.10
 Related entries now use an isolated fixed-size card layout, independent from featured/large ContentCard styles.
+
+
+## V2.11
+
+- Added NEKUS / BLOODSOAKED NECROVOID — *Funerary Rites of Ancient Doom*.
+- Added Ripper — *Towards Rebirth*.
+- Ripper release information is intentionally displayed as **2026** without an exact day/month.
+
+
+## V2.12
+
+- Reduced the homepage hero title size on mobile screens so “Documenting the underground beyond the feed.” remains readable without oversized wrapping.
+- Desktop and section-page heading sizes remain unchanged.
