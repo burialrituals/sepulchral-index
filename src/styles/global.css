@@ -268,3 +268,54 @@ p { color: #d1cec5; line-height: 1.65; }
   .related-grid { grid-template-columns: 1fr; }
   .related-card__body { min-height: 0; }
 }
+
+/* V2.14 — dual featured releases sharing the same release date */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+.featured-grid .featured-card--dual {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+.featured-grid .featured-card--dual .featured-card__media {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 1 / 1;
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+}
+.featured-grid .featured-card--dual .featured-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #050505;
+}
+.featured-grid .featured-card--dual .featured-card__body {
+  flex: 1;
+  justify-content: flex-start;
+  padding: 22px 24px 24px;
+}
+.featured-grid .featured-card--dual .featured-card__body h3 {
+  font-size: clamp(1.35rem, 2.15vw, 2rem);
+  line-height: 1.02;
+  margin-bottom: 12px;
+}
+.featured-grid .featured-card--dual .featured-card__body p {
+  margin-bottom: 0;
+}
+.featured-release-note {
+  color: var(--muted);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+@media (max-width: 760px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-grid .featured-card--dual .featured-card__body { padding: 18px; }
+  .featured-release-note { display: none; }
+}

@@ -1,4 +1,4 @@
-# Persecution Index — V2.13
+# Persecution Index — V2.14
 
 Astro site for an independent extreme metal journal & archive based in Chile.
 
@@ -102,3 +102,11 @@ Related entries now use an isolated fixed-size card layout, independent from fea
 - Added Embrace of Thorns / Invocation — *Invoking the Noumenon / Crushing the Feeble Messianic Embrace*.
 - Set the new split announcement as the homepage **Featured** entry.
 - Deathwards remains in the archive and From Chile section but is no longer the featured item.
+
+
+## V2.14
+
+- Replaced the Embrace of Thorns / Invocation split artwork with the corrected cover.
+- The homepage Featured section now displays **two equal editorial blocks**: Embrace of Thorns / Invocation and Deathwards.
+- Both Featured blocks highlight their shared **30 October 2026** release date.
+- Featured cards render as two columns on desktop and stack cleanly on mobile.
